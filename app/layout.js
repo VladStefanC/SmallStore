@@ -32,13 +32,13 @@ export default function RootLayout({ children }) {
           <footer>
             <div className="email-container">
               <h5>Get a sneak peak offers and other stuff</h5>
-               <EmailInput />  
+              <EmailInput />
             </div>
             <div className="links-container">
               <div>
                 <h3>VladStefanC</h3>
                 <Link href={"/"}>VladStefanCHub</Link>
-                <Link href={"/"}>RoadMap</Link> 
+                <Link href={"/"}>RoadMap</Link>
               </div>
               <div>
                 <h3>Store</h3>
@@ -47,17 +47,36 @@ export default function RootLayout({ children }) {
               </div>
               <div>
                 <h3>Support</h3>
-                 <Link href={"/not-found.js"}>Contact</Link> {/*Create a Contact page */}
+                <Link href={"/not-found.js"}>Contact</Link>{" "}
+                {/*Create a Contact page */}
                 <Link href={"/"}>FAQs</Link> {/*Create a FAQs page*/}
-
               </div>
             </div>
             <div className="socials">
-              <p>© <a href="https://github.com/VladStefanC" target="_blank">VladStefanC</a> 2025<br />Built with NextJS & <a target="_blank" href="https://www.fantacss.smoljames.com">FantaCSS</a> 🔥</p>
-               <div className="social-links">
-                  <Link href={'https://github.com/VladStefanC'} target="_blank"><i className="fa-brands fa-github"></i></Link>
-                  <Link href={'https://linkedin.com/in/vlad-ciorescu-2b9197164'} target="_blank"><i className="fa-brands fa-linkedin"></i></Link>
-                </div>
+              <p>
+                ©{" "}
+                <a href="https://github.com/VladStefanC" target="_blank">
+                  VladStefanC
+                </a>{" "}
+                2025
+                <br />
+                Built with NextJS &{" "}
+                <a target="_blank" href="https://www.fantacss.smoljames.com">
+                  FantaCSS
+                </a>{" "}
+                🔥
+              </p>
+              <div className="social-links">
+                <Link href={"https://github.com/VladStefanC"} target="_blank">
+                  <i className="fa-brands fa-github"></i>
+                </Link>
+                <Link
+                  href={"https://linkedin.com/in/vlad-ciorescu-2b9197164"}
+                  target="_blank"
+                >
+                  <i className="fa-brands fa-linkedin"></i>
+                </Link>
+              </div>
             </div>
           </footer>
         </div>
