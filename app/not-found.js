@@ -1,10 +1,11 @@
-import Link from "next/link"
+import Link from "next/link";
 export default function NotFound() {
   return (
-    <div>
-      <h2>PAGE NOT MADE BECAUSE THE DEV IS LAZY</h2>
-      <Link href={'/'}>
-        <button href={'/'}>Home</button>
+    <div className="page-container">
+      <h2>Page not found :(</h2>
+      <p className="text-large">404</p>
+      <Link href={"/"}>
+        <button href={"/"}>Home</button>
       </Link>
     </div>
   );

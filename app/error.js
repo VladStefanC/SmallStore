@@ -10,14 +10,13 @@ export default function Error(props) {
   }, [error]);
 
   return (
-    <div>
+    <div className="page-container">
       <h3>Something went wrong!</h3>
-       <button onClick={reset}>Reset</button>
-       
+      <button onClick={reset}>Reset</button>
+
       <Link href="/">
         <button>Home</button>
       </Link>
-     
     </div>
   );
 }
