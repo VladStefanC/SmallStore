@@ -44,6 +44,17 @@ header {
   display: flex;
   align-items: center;
   justify-content: flex-end;
+  position: relative;
+  padding-right: 0.5rem;
+}
+
+.cart-num {
+  position: absolute;
+  top:-5px;
+  right:-5px;
+  color: #030615;
+  font-family: 'Grenze',serif;
+  font-weight: 700;
 }
 
 .header-content h1 {
@@ -176,7 +187,7 @@ main,
 }
 
 .purchase-btns {
-  padding-top: 1rem;
+  padding-top: 0.5rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -198,6 +209,15 @@ main,
 .sticker-info {
   gap: 1rem;
   padding: 1rem;
+}
+
+.sticker-info h4 {
+  font-size: 1.7rem;
+}
+
+.sticker-info h4 span {
+  font-size: 1rem;
+  padding-right: 0.1rem;
 }
 
 /*Footer Styles*/
@@ -281,7 +301,6 @@ footer .links-container > div {
   gap: 1rem;
 }
 
-
 /* Portal Overlay */
 .portal-container {
   position: fixed;
@@ -308,8 +327,8 @@ footer .links-container > div {
   z-index: 1005;
   top: 50%;
   left: 50%;
-  transform:  translate(-50%, -50%);
-  max-width:80vh;
+  transform: translate(-50%, -50%);
+  max-width: 80vh;
   max-height: 80vh;
   display: grid;
   place-items: center;
@@ -367,10 +386,6 @@ footer .links-container > div {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
-
-
-
-
 
 @media (min-width: 768px) {
   .sticker-container {

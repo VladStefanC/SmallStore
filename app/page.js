@@ -2,20 +2,35 @@ import ImageBanner from "@/components/ImageBanner";
 import Products from "@/components/Products";
 
 export async function getProducts() {
-  const res = await fetch("http://localhost:3000/api/products");
-  const data = res.json()
+  const baseURL = process.env.NEXT_PUBLIC_BASE_URL
+  const res = await fetch(`${baseURL}/api/products`);
+  const data = await res.json()
 
-  return data 
+  return data ;
 }
 
 export default async function Home() {
   const products = await getProducts();
-  console.log(products)
+
+  let planner = null
+  let stickers = []
+
+  for ( let product of products) {
+    if (product.name === 'Medieval Dragon Planner.png'){
+      planner = product
+      continue
+    }
+
+    stickers.push(product)
+
+  }
+
+
   return (
     <>
       <ImageBanner />
       <section>
-        <Products />
+        <Products planner={planner} stickers={stickers} />
       </section>
     </>
   );

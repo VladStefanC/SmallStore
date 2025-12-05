@@ -14,6 +14,7 @@ export async function GET() {
     //fetch all the prices
     const prices = await stripe.prices.list({ active: true });
 
+
     //combine products and their coresponding prices
     const combinedData = products.data.map((product) => {
       const productPrices = prices.data.filter((price) => {
@@ -43,3 +44,4 @@ export async function GET() {
     return Response.json({ error: "Failed to fetch data from stripe" });
   }
 }
+
