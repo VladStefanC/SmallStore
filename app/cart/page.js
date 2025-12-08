@@ -1,40 +1,97 @@
 "use client";
 
 import { useProducts } from "@/context/ProductContext";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 export default function CartPage() {
-  const { cart } = useProducts();
+  const router = useRouter();
+  const { cart, handleIncrementProduct} = useProducts();
+
+  async function createCheckout() {
+    try {
+      const baseURL = process.env.NEXT_PUBLIC_BASE_URL;
+      const lineItems = Object.keys(cart).map((item, itemIndex) => {
+        return {
+          price: item,
+          quantity: cart[item].quantity,
+        };
+      });
+      const response = await fetch(baseURL + "/api/checkout", {
+        method: "POST",
+        headers: {
+          "Content-type": "application/json",
+        },
+        body: JSON.stringify({ lineItems }),
+      });
+      const data = await response.json();
+
+      if (response.ok) {
+        console.log("DATAAA", data);
+        router.push(data.url);
+      }
+    } catch (err) {
+      console.log("error creating checkout", err.message);
+    }
+  }
 
   return (
     <section className="cart-section">
       <h2>Your cart</h2>
+      {Object.keys(cart).length === 0 && <p>You have no items in your cart.</p>}
       <div className="cart-container">
         {Object.keys(cart).map((item, itemIndex) => {
           const itemData = cart[item];
-          console.log("Item Data ",itemData)
+          console.log("Item Data ", itemData);
           const itemQuantity = itemData?.quantity;
 
-          const imageName = itemData.name === "Medieval Dragon Planner.png" ? 
+          const imageName =
+            itemData.name === "Medieval Dragon Planner.png"
+              ? "planner"
+              : itemData.name
+                  .replaceAll(" Sticker.png", "")
+                  .replaceAll("_", "");
 
-          'planner' : itemData.name.replaceAll(" Sticker.png", "").replaceAll("_", "")
+          const imageUrl = `low_res/${imageName}.jpeg`;
 
-          const imageUrl = 'low_res/' + imageName + '.jpeg'
-          
+          return (
+            <div key={itemIndex} className="cart-item">
+              <img src={imageUrl} alt={`${imageName}-img`} />
+              <div className="cart-item-info">
+                <h3>{itemData.name}</h3>
+                <p>
+                  {itemData.description.slice(0, 100)}
+                  {itemData.description.length > 100 ? "..." : ""}
+                </p>
+                <h4>${itemData.prices[0].unit_amount / 100}</h4>
+                <div className="quantity-container">
+                  <p>
+                    <strong>Quantity</strong>
+                  </p>
+                  <input
+                    type="number"
+                    value={itemQuantity}
+                    placeholder="1"
+                    onChange={(e) => {
+                      const newValue = e.target.value
+                      handleIncrementProduct(itemData.default_price, newValue, itemData, true)
 
-         return (
-          <div key={itemIndex} className="cart-item">
-            <img src={imageUrl} alt={imageName + '-img'} />
-            <div className="cart-item-info">
-            <h3>{itemData.name}</h3>
-            <p>{itemData.description.slice(0,100)}{itemData.description.length > 100 ? '...' : ''}</p>
+                    }}
+                  />
+                </div>
+              </div>
             </div>
-
-          </div>
-         )
-        
+          );
         })}
       </div>
-      
+
+      <div className="checkout-container">
+        <Link href={"/"}>
+          <button>&larr; Continue Shopping</button>
+        </Link>
+
+        <button onClick={createCheckout}>Checkout &rarr;</button>
+      </div>
     </section>
   );
 }

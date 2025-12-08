@@ -53,7 +53,7 @@ export default function Products(props) {
             Medieval Dragon Month Planner
           </p>
           <h3>
-            <span>$</span>14.99
+            <span>$</span>7.99
           </h3>
           <p>
             Step into a realm of fantasy and organization with our{" "}

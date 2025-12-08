@@ -9,7 +9,7 @@ export default function ProductsProvider(props) {
 
   const [cart, setCart] = useState({});
 
-  function handleIncrementProduct(price_id, num,data) {
+  function handleIncrementProduct(price_id, num,data, noIncrement = false) {
     //add product to cart
     const newCart = {
       ...cart,
@@ -19,7 +19,7 @@ export default function ProductsProvider(props) {
       //newCart[price_id] = newCart[price_id] + num;
       newCart[price_id] = {
         ...data,
-        quantity : newCart[price_id]?.quantity + num
+        quantity : noIncrement ? num : newCart[price_id]?.quantity + num
       }
 
       //if newCart[price_ide] = 0 in that case delete
@@ -31,7 +31,7 @@ export default function ProductsProvider(props) {
       }
     }
 
-    if (newCart[price_id].quantity === 0) {
+    if (parseInt(newCart[price_id].quantity) <= 0) {
       //remove in case decrement reaches 0
       delete newCart[price_id];
     }

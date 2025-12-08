@@ -1,10 +1,33 @@
 "use client";
 
+import { useState } from "react";
+
 export default function EmailInput() {
+  const [email, setEmail] = useState("");
+  async function handleAddSubscriber() {
+    
+
+    try {
+       //write the post fetch request email list newsletter stuff 
+      if(email.includes("@")){
+          console.log(email)
+      }
+     
+      
+    } catch(err){
+      console.log('Failed to add subscriber: ', err.message)
+    }
+  }
   return (
     <div className="sign-up">
-      <input placeholder="Email adress..." />
-      <button className="button-card">Sign Up</button>
+      <input
+        value={email}
+        onChange={(e) => {
+          setEmail(e.target.value);
+        }}
+        placeholder="Email adress..."
+      />
+      <button onClick={handleAddSubscriber} className="button-card">Sign Up</button>
     </div>
   );
 }
