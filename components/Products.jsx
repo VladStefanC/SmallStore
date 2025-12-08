@@ -3,14 +3,14 @@
 import { useState } from "react";
 import Portal from "./Portal";
 import { useProducts } from "@/context/ProductContext";
-import { handleClientScriptLoad } from "next/script";
+
 
 export default function Products(props) {
   const [portalImage, setPortalImage] = useState(null);
   const { planner, stickers } = props;
 
   const { handleIncrementProduct, cart } = useProducts();
-  console.log(cart);
+
 
   if (!stickers.length || !planner) {
     return null;

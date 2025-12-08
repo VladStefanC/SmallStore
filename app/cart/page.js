@@ -27,7 +27,7 @@ export default function CartPage() {
       const data = await response.json();
 
       if (response.ok) {
-        console.log("DATAAA", data);
+        
         router.push(data.url);
       }
     } catch (err) {
@@ -42,7 +42,7 @@ export default function CartPage() {
       <div className="cart-container">
         {Object.keys(cart).map((item, itemIndex) => {
           const itemData = cart[item];
-          console.log("Item Data ", itemData);
+       
           const itemQuantity = itemData?.quantity;
 
           const imageName =
