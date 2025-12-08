@@ -10,7 +10,7 @@ export default function EmailInput() {
     try {
        //write the post fetch request email list newsletter stuff 
       if(email.includes("@")){
-          console.log(email)
+
       }
      
       

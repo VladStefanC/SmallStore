@@ -13,7 +13,7 @@ export default function Cart() {
     return sum
 
   }, 0)
-  console.log('NUMBER OF PRODCUTS TOTAL', numProducts)
+
   return (
     <div>
       <Link className="unstyled-button" href={"/cart"}>
