@@ -3,7 +3,8 @@ import Products from "@/components/Products";
 
 export async function getProducts() {
   const baseURL = process.env.NEXT_PUBLIC_BASE_URL
-  const res = await fetch(`${baseURL}/api/products`.replace("//api", "/api"));
+  const res = await fetch(`${baseURL}/api/products`);
+  console.log("API CALL IN MAIN PAGE", res)
   const data = await res.json()
 
   return data ;

@@ -24,6 +24,7 @@ export default function CartPage() {
         },
         body: JSON.stringify({ lineItems }),
       });
+      console.log("API CALL IN MAIN PAGE", response)
       const data = await response.json();
 
       if (response.ok) {
