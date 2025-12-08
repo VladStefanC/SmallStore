@@ -40,17 +40,17 @@ export default function RootLayout({ children }) {
             <div className="links-container">
               <div>
                 <h3>VladStefanC</h3>
-                <Link target="_blank" href={"/"}>VladStefanCHub</Link>
-                <Link target="_blank" href={"/"}>RoadMap</Link>
+                <Link target="_blank" href={"https://github.com/VladStefanC"}>Vlad Stefan C Hub</Link>
+              
               </div>
               <div>
                 <h3>Store</h3>
-                <Link target="_blank" href={"/"}>Home</Link>
+                <Link target="_blank" href={""}>Home</Link>
                 <Link target="_blank" href={"/cart"}>Cart</Link>
               </div>
               <div>
                 <h3>Support</h3>
-                <Link target="_blank" href={"/not-found.js"}>Contact</Link>{" "}
+                <Link target="_blank" href={"not-found.js"}>Contact</Link>{" "}
                 {/*Create a Contact page */}
                 <Link target="_blank" href={"/"}>FAQs</Link> {/*Create a FAQs page*/}
               </div>
