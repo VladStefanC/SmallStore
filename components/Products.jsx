@@ -99,6 +99,7 @@ export default function Products(props) {
             const stickerImgUrl = sticker.name
               .replaceAll(" Sticker.png", "")
               .replaceAll(" ", "_");
+            console.log(stickerImgUrl)
             return (
               <div key={stickerIndex} className="sticker-card">
                 <button
@@ -109,7 +110,7 @@ export default function Products(props) {
                 >
                   <img
                     src={`low_res/${stickerImgUrl}.jpeg`}
-                    alt={`${stickerImgUrl}-low-res`}
+                    alt={`${stickerName}-low-res`}
                   />
                 </button>
                 <div className="sticker-info">
